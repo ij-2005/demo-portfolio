@@ -40,4 +40,14 @@ if (upArrow && nav) {
   });
 }
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    // Let browser handle the scroll first
+    setTimeout(() => {
+      // Remove the hash from URL without reloading
+      history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }, 10);
+  });
+});
+
    
